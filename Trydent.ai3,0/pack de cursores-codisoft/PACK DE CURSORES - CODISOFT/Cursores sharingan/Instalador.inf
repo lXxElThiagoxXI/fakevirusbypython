@@ -1,0 +1,56 @@
+; "Sharingan cursor" 
+EDITADO POR: Iaraeditions
+"install"
+; Enjoy! ;-)
+
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+; -- Common Information
+
+[Scheme.Cur]
+"Sharingan_arrow.ani"
+"Sharingan_help.ani"
+"Sharingan_AppStarting.ani"
+"Sharingan_Wait.ani"
+"Sharingan_Cross.ani"
+"Sharingan_IBeam.ani"
+"Sharingan_Handwriting.ani"
+"Sharingan_NO.ani"
+"Sharingan_SizeNS.ani"
+"Sharingan_SizeWE.ani"
+"Sharingan_SizeNWSE.ani"
+"Sharingan_SizeNESW.ani"
+"Sharingan_Move.ani"
+"Sharingan_UpArrow.ani"
+"Sharingan_Hand.ani"
+
+[Strings]
+CUR_DIR		= "Sharingan cursor By Taku_Vlogs"
+SCHEME_NAME	= "Sharingan cursor"
+pointer		= "Sharingan_Arrow.ani"
+help		= "Sharingan_Help.ani"
+work		= "Sharingan_AppStarting.ani"
+busy		= "Sharingan_Wait.ani"
+cross		= "Sharingan_Cross.ani"
+text		= "Sharingan_IBeam.ani"
+hand		= "Sharingan_Handwriting.ani"
+unavailiable	= "Sharingan_NO.ani"
+vert		= "Sharingan_SizeNS.ani"
+horz		= "Sharingan_SizeWE.ani"
+dgn1		= "Sharingan_SizeNWSE.ani"
+dgn2		= "Sharingan_SizeNESW.ani"
+move		= "Sharingan_Move.ani"
+alternate		= "Sharingan_UpArrow.ani"
+link		= "Sharingan_Hand.ani"

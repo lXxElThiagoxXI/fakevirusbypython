@@ -1,0 +1,56 @@
+;--CREDITS--
+; -roalks (created the cursors)
+; -usedHONDA (lent me this file to edit)
+; -gigapixels (created this file)
+;
+;
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+[Scheme.Cur]
+"14 Selección alternativa.cur"
+"4 Ocupado.ani"
+"11 Ajuste diagonal 1.cur"
+"12 Ajuste diagonal 2.cur"
+"7 Escritura a mano.cur"
+"2 Selección de ayuda.cur"
+"10 Ajuste horizontal.cur"
+"15 Selección de vínculo.cur"
+"13 Mover.cur"
+"1 Selección normal.cur"
+"5 Selección de precisión.cur"
+"6 Selección de texto.cur"
+"8 No disponible.cur"
+"9 Ajuste vertical.cur"
+"3 Trabajando en segundo plano.ani"
+
+[Strings]
+CUR_DIR     = "Cursors\Cursor luminoso amarillo"
+SCHEME_NAME = "Cursor luminoso amarillo"
+alternate   = "14 Selección alternativa.cur"
+busy    = "4 Ocupado.ani"
+cross   = "5 Selección de precisión.cur"
+dgn1    = "11 Ajuste diagonal 1.cur"
+dgn2    = "12 Ajuste diagonal 2.cur"
+hand    = "7 Escritura a mano.cur"
+help    = "2 Selección de ayuda.cur"
+horz    = "10 Ajuste horizontal.cur"
+link    = "15 Selección de vínculo.cur"
+move    = "13 Mover.cur"
+pointer = "1 Selección normal.cur"
+text    = "6 Selección de texto.cur"
+unavailiable = "8 No disponible.cur"
+vert    = "9 Ajuste vertical.cur"
+work    = "3 Trabajando en segundo plano.ani"
+
+;roalks@msn.com

@@ -1,0 +1,58 @@
+; Dark-Alpha
+; Win 9x/NT Cursor Scheme installation file.
+
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+; -- Common Information
+
+[Scheme.Cur]
+Normal.cur
+Help-Select.cur
+Working.cur
+Busy.cur
+Text.cur
+Not-Available.cur
+Vert-Resize.cur
+Horiz-Resize.cur
+Diag1.cur
+Diag2.cur
+Move.cur
+Link.cur
+Cross.cur
+Hand.cur
+Alt.cur
+
+[Scheme.Txt]
+Alpha.txt
+
+[Strings]
+CUR_DIR       = "Cursors\Dark-Alpha"
+SCHEME_NAME   = "Dark-Alpha"
+pointer       = "Normal.cur"
+help          = "Help-Select.cur"
+work          = "Working.cur"
+busy          = "Busy.cur"
+text          = "Text.cur"
+unavailiable  = "Not-Available.cur"
+vert          = "Vert-Resize.cur"
+horz          = "Horiz-Resize.cur"
+dgn1          = "Diag1.cur"
+dgn2          = "Diag2.cur"
+move          = "Move.cur"
+link          = "Link.cur"
+cross         = "Cross.cur"
+hand          = "Hand.cur"
+alternate     = "Alt.cur"
+
