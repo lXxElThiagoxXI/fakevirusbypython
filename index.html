@@ -186,17 +186,17 @@
   </div>
 
   <script>
-    // Obtener clave desde el almacenamiento del navegador del usuario
+    // Obtener clave guardada localmente
     function getStoredApiKey() {
       let key = localStorage.getItem('GEMINI_API_KEY');
       if (!key) {
-        key = prompt("🔑 Ingresa tu API Key de Gemini para activar la IA en la terminal:");
+        key = prompt("🔑 Ingresa tu API Key de Google AI Studio para activar la IA:");
         if (key && key.trim() !== "") {
           key = key.trim();
           localStorage.setItem('GEMINI_API_KEY', key);
-          appendLog('SYSTEM: ¡API Key guardada exitosamente en este dispositivo!', '#00ff66');
+          appendLog('SYSTEM: ¡API Key guardada correctamente!', '#00ff66');
         } else {
-          appendLog('SYSTEM: No se ingresó API Key. La IA no responderá hasta configurar una.', '#ff0055');
+          appendLog('SYSTEM: No se ingresó API Key. Usa "setkey" para ingresar una.', '#ff0055');
           return null;
         }
       }
@@ -205,7 +205,6 @@
 
     async function handleInput() {
       const input = document.getElementById('cmdInput');
-      const log = document.getElementById('terminalLog');
       const text = input.value.trim();
 
       if (!text) return;
@@ -215,7 +214,7 @@
 
       const cmd = text.toLowerCase();
 
-      // Comandos locales directos
+      // Comandos directos de la terminal
       if (cmd === 'rblx') {
         window.open('https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx', '_blank');
         return;
@@ -223,47 +222,55 @@
         window.open('https://github.com/pythevirusfake/fakevirusbypython/releases#release-amng', '_blank');
         return;
       } else if (cmd === 'clear') {
-        log.innerHTML = '';
+        document.getElementById('terminalLog').innerHTML = '';
         return;
       } else if (cmd === 'setkey') {
         localStorage.removeItem('GEMINI_API_KEY');
         getStoredApiKey();
         return;
       } else if (cmd === 'help') {
-        appendLog('COMANDOS: rblx, amng, clear, setkey (cambiar API Key), o escribe libremente para consultar a Gemini.', '#00ff66');
+        appendLog('COMANDOS: rblx, amng, clear, setkey (cambiar clave API), o escribe libremente para consultar a Gemini.', '#00ff66');
         return;
       }
 
-      // Proceso de consulta a Gemini con la clave guardada en el navegador
       const apiKey = getStoredApiKey();
       if (!apiKey) return;
 
-      appendLog('> Conectando con Gemini AI...', '#888888');
+      appendLog('> Procesando respuesta con Gemini AI...', '#888888');
 
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+      // Lista de modelos ordenados por prioridad (Gemini 3.6 Flash y Gemini 3.5 Flash Light)
+      const modelsToTry = ['gemini-3.6-flash', 'gemini-3.5-flash-lite'];
+      let success = false;
 
-      try {
-        const response = await fetch(geminiUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{ text: `Eres el asistente oficial del repositorio 'Fake Virus by Python' (exclusivo para Windows). Responde de forma breve y concisa en formato terminal al usuario: ${text}` }]
-            }]
-          })
-        });
+      for (const model of modelsToTry) {
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-        const data = await response.json();
-        
-        if (data.candidates && data.candidates[0] && data.candidates[0].content.parts[0].text) {
-          const aiResponse = data.candidates[0].content.parts[0].text;
-          appendLog('GEMINI: ' + aiResponse, '#00ff66');
-        } else {
-          appendLog('GEMINI: [Error de respuesta. Revisa tu API Key o prueba con el comando "setkey"]', '#ff0055');
+        try {
+          const response = await fetch(geminiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{ text: `Eres el asistente de Fake Virus Hub (exclusivo Windows). Responde de forma concisa y directa: ${text}` }]
+              }]
+            })
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+            const aiResponse = data.candidates[0].content.parts[0].text;
+            appendLog(`[Gemini AI]:\n${aiResponse}`, '#00ff66');
+            success = true;
+            break;
+          }
+        } catch (error) {
+          // Si falla, el bucle intentará con el siguiente modelo en la lista
         }
+      }
 
-      } catch (error) {
-        appendLog('ERROR: No se pudo conectar a la API de Gemini. Revisa la conexión o tu clave con "setkey".', '#ff0055');
+      if (!success) {
+        appendLog('❌ Error: No se pudo conectar con Gemini. Verifica tu API Key o reingrésala escribiendo "setkey".', '#ff0055');
       }
     }
 
@@ -272,6 +279,7 @@
       const line = document.createElement('div');
       line.textContent = msg;
       line.style.color = color;
+      line.style.marginTop = "4px";
       log.appendChild(line);
       log.scrollTop = log.scrollHeight;
     }
