@@ -66,6 +66,16 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
+    .api-key-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      background: #000;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 6px;
+    }
+
     .links-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -145,9 +155,17 @@
     <!-- TERMINAL INTERACTIVA CON GEMINI AI -->
     <div class="card">
       <h3 style="color: var(--primary); margin-bottom: 10px;">💻 Terminal IA de Gemini XD</h3>
+      
+      <!-- CAMPO FIJO PARA LA API KEY (COMPATIBLE CON NATIVEFIER / ELECTRON) -->
+      <div class="api-key-container">
+        <input type="password" id="apiKeyInput" class="terminal-input" placeholder="🔑 Pega tu Gemini API Key aquí...">
+        <button class="btn" onclick="saveApiKeyDirect()">Guardar Key</button>
+      </div>
+
       <div class="terminal" id="terminalLog">
         <div>> Sistema inicializado en modo seguro local...</div>
-        <div>> Escribe un comando (rblx, amng, help, setkey) o una consulta para la IA.</div>
+        <div>> Escribe tu API Key arriba para activar Gemini AI.</div>
+        <div>> Comandos disponibles: rblx, amng, clear, help</div>
       </div>
       <div class="terminal-input-container">
         <input type="text" id="cmdInput" class="terminal-input" placeholder="Pregúntale algo a la IA o escribe un comando...">
@@ -186,21 +204,24 @@
   </div>
 
   <script>
-    // Obtener clave guardada localmente
-    function getStoredApiKey() {
-      let key = localStorage.getItem('GEMINI_API_KEY');
-      if (!key) {
-        key = prompt("🔑 Ingresa tu API Key de Google AI Studio para activar la IA:");
-        if (key && key.trim() !== "") {
-          key = key.trim();
-          localStorage.setItem('GEMINI_API_KEY', key);
-          appendLog('SYSTEM: ¡API Key guardada correctamente!', '#00ff66');
-        } else {
-          appendLog('SYSTEM: No se ingresó API Key. Usa "setkey" para ingresar una.', '#ff0055');
-          return null;
-        }
+    // Cargar clave si ya existe al abrir la app
+    window.onload = function() {
+      const savedKey = localStorage.getItem('GEMINI_API_KEY');
+      if (savedKey) {
+        document.getElementById('apiKeyInput').value = savedKey;
+        appendLog('SYSTEM: API Key cargada desde la memoria local.', '#00ff66');
       }
-      return key;
+    };
+
+    function saveApiKeyDirect() {
+      const keyVal = document.getElementById('apiKeyInput').value.trim();
+      if (keyVal) {
+        localStorage.setItem('GEMINI_API_KEY', keyVal);
+        appendLog('SYSTEM: ¡API Key guardada exitosamente!', '#00ff66');
+      } else {
+        localStorage.removeItem('GEMINI_API_KEY');
+        appendLog('SYSTEM: API Key eliminada.', '#ff0055');
+      }
     }
 
     async function handleInput() {
@@ -214,7 +235,7 @@
 
       const cmd = text.toLowerCase();
 
-      // Comandos directos de la terminal
+      // Comandos directos
       if (cmd === 'rblx') {
         window.open('https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx', '_blank');
         return;
@@ -224,21 +245,22 @@
       } else if (cmd === 'clear') {
         document.getElementById('terminalLog').innerHTML = '';
         return;
-      } else if (cmd === 'setkey') {
-        localStorage.removeItem('GEMINI_API_KEY');
-        getStoredApiKey();
-        return;
       } else if (cmd === 'help') {
-        appendLog('COMANDOS: rblx, amng, clear, setkey (cambiar clave API), o escribe libremente para consultar a Gemini.', '#00ff66');
+        appendLog('COMANDOS: rblx, amng, clear, o escribe libremente para consultar a Gemini.', '#00ff66');
         return;
       }
 
-      const apiKey = getStoredApiKey();
-      if (!apiKey) return;
+      // Obtener clave desde la barra o localStorage
+      let apiKey = localStorage.getItem('GEMINI_API_KEY') || document.getElementById('apiKeyInput').value.trim();
+
+      if (!apiKey) {
+        appendLog('❌ Error: Por favor ingresa tu API Key en la casilla de arriba y haz clic en "Guardar Key".', '#ff0055');
+        return;
+      }
 
       appendLog('> Procesando respuesta con Gemini AI...', '#888888');
 
-      // Lista de modelos ordenados por prioridad (Gemini 3.6 Flash y Gemini 3.5 Flash Light)
+      // Modelos soportados (3.6 Flash y 3.5 Flash Lite)
       const modelsToTry = ['gemini-3.6-flash', 'gemini-3.5-flash-lite'];
       let success = false;
 
@@ -265,12 +287,12 @@
             break;
           }
         } catch (error) {
-          // Si falla, el bucle intentará con el siguiente modelo en la lista
+          // Si falla, prueba el siguiente modelo
         }
       }
 
       if (!success) {
-        appendLog('❌ Error: No se pudo conectar con Gemini. Verifica tu API Key o reingrésala escribiendo "setkey".', '#ff0055');
+        appendLog('❌ Error: No se pudo conectar con Gemini. Revisa que tu API Key sea correcta.', '#ff0055');
       }
     }
 
