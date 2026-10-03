@@ -3,83 +3,312 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rolex Player Fake Virus - Redirigiendo...</title>
-  <!-- Redirección automática en 3 segundos -->
-  <meta http-equiv="refresh" content="3;url=https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx">
+  <title>Fake Virus Hub - Exclusive Windows Hub XD</title>
   <style>
+    :root {
+      --primary: #00ff66;
+      --danger: #ff0055;
+      --bg: #08080a;
+      --card-bg: #121318;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+
     body {
-      background-color: #0a0a0a;
-      color: #00ff66;
-      font-family: 'Courier New', Courier, monospace;
+      background-color: var(--bg);
+      color: #ffffff;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* Banner de Advertencia de Sistema */
+    .windows-only-banner {
+      background: linear-gradient(90deg, #8b0000, var(--danger));
+      color: white;
       text-align: center;
-    }
-
-    .card {
-      background: #121212;
-      border: 1px solid #00ff66;
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
-      max-width: 480px;
-      width: 90%;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #cccccc;
-      font-size: 0.95rem;
+      padding: 12px;
+      font-weight: bold;
+      border-radius: 6px;
       margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .header h1 {
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+      font-size: 2.2rem;
+    }
+
+    /* Card Principal */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Links / Releases Section */
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .link-card {
+      background: #1a1c23;
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-info h3 {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .link-info p {
+      font-size: 0.85rem;
+      color: #aaa;
     }
 
     .btn {
-      display: inline-block;
-      background-color: #00ff66;
-      color: #000000;
-      padding: 12px 24px;
-      font-weight: bold;
+      background: var(--primary);
+      color: #000;
+      padding: 10px 18px;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.2s;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
     }
 
     .btn:hover {
-      background-color: #00cc52;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px var(--primary);
     }
 
-    .spinner {
-      margin: 20px auto;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 255, 102, 0.2);
-      border-top: 4px solid #00ff66;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+    /* Terminal interactiva XD */
+    .terminal {
+      background: #000;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 15px;
+      height: 180px;
+      overflow-y: auto;
+      color: var(--primary);
+      font-size: 0.85rem;
+      margin-bottom: 15px;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .terminal-input-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .terminal-input {
+      flex: 1;
+      background: #000;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    /* Sistema no soportado badge */
+    .incompatible-warning {
+      display: none;
+      background: #331010;
+      border: 1px solid #ff4444;
+      color: #ff8888;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 15px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Fake Virus by Python</h1>
-    <div class="spinner"></div>
-    <p>Redirigiendo a la release <strong>Rolex Player Fake Virus</strong>...</p>
-    <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx">Ir ahora mismo</a>
+  <div class="container">
+
+    <!-- ADVERTENCIA OBLIGATORIA DE WINDOWS -->
+    <div class="windows-only-banner">
+      ⚠️ ¡ATENCIÓN! Todo lo creado aquí es <u>EXCLUSIVAMENTE para Windows</u>.<br>
+      NO compatible con Android, iOS, Mac o Linux. 🖥️
+    </div>
+
+    <div class="header">
+      <h1>🔀 Fake Virus Repository Hub XD</h1>
+      <p style="color: #888;">Panel de control y enlaces directos a releases</p>
+    </div>
+
+    <!-- TERMINAL INTERACTIVA XD -->
+    <div class="card">
+      <h3 style="color: var(--primary); margin-bottom: 10px;">💻 Terminal de Comandos XD</h3>
+      <div class="terminal" id="terminalLog">
+        <div>> Sistema inicializado...</div>
+        <div>> Detectando arquitectura...</div>
+        <div>> Listo. Escribe 'help' o 'releases' para ejecutar comandos XD.</div>
+      </div>
+      <div class="terminal-input-container">
+        <input type="text" id="cmdInput" class="terminal-input" placeholder="Escribe un comando (ej: help, windows, rblx)...">
+        <button class="btn" onclick="executeCommand()">Enviar</button>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE ARCHIVOS Y RELEASES -->
+    <div class="card">
+      <h2 style="margin-bottom: 15px; color: #fff;">📦 Archivos y Releases Disponibles</h2>
+      
+      <div class="links-grid">
+        
+        <!-- Link 1 -->
+        <div class="link-card">
+          <div class="link-info">
+            <h3>📂 Archivos Trydent.ai3,0</h3>
+            <p>Explorar árbol de código del proyecto principal</p>
+          </div>
+          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/tree/main/Trydent.ai3%2C0" target="_blank">Ver Código 💻</a>
+        </div>
+
+        <!-- Link 2 -->
+        <div class="link-card">
+          <div class="link-info">
+            <h3>🚀 Release: Rolex Player Fake Virus</h3>
+            <p>Tag oficial / versión RBLX para Windows</p>
+          </div>
+          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx" target="_blank">Descargar RBLX 📥</a>
+        </div>
+
+        <!-- Link 3 -->
+        <div class="link-card">
+          <div class="link-info">
+            <h3>🎮 Release: AMNG Version</h3>
+            <p>Sección especial de Releases AMNG</p>
+          </div>
+          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/releases#release-amng" target="_blank">Ver Release AMNG 👁️</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMPROBADOR DE SISTEMA -->
+    <div class="card" style="text-align: center;">
+      <h3>🔍 Verificador de Compatibilidad de tu PC</h3>
+      <p style="color: #aaa; margin: 10px 0;">Haz clic para comprobar si tu dispositivo puede ejecutar estos programas:</p>
+      <button class="btn" style="background: #2196F3; color: white;" onclick="checkSystem()">Verificar mi Sistema</button>
+      
+      <div id="systemResult" class="incompatible-warning"></div>
+    </div>
+
   </div>
 
+  <script>
+    // Función para la Terminal XD
+    function executeCommand() {
+      const input = document.getElementById('cmdInput');
+      const log = document.getElementById('terminalLog');
+      const cmd = input.value.trim().toLowerCase();
+      
+      if (cmd === '') return;
+
+      const userLine = document.createElement('div');
+      userLine.textContent = '> ' + cmd;
+      userLine.style.color = '#fff';
+      log.appendChild(userLine);
+
+      const responseLine = document.createElement('div');
+
+      switch(cmd) {
+        case 'help':
+          responseLine.textContent = 'Comandos disponibles: help, windows, rblx, amng, trydent, clear, xd';
+          break;
+        case 'windows':
+          responseLine.textContent = 'SYSTEM: Recuerda que esto solo corre en Windows. Si tienes Android/Mac F en el chat.';
+          break;
+        case 'rblx':
+          responseLine.textContent = 'Abriendo Release RBLX...';
+          window.open('https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx', '_blank');
+          break;
+        case 'amng':
+          responseLine.textContent = 'Abriendo Release AMNG...';
+          window.open('https://github.com/pythevirusfake/fakevirusbypython/releases#release-amng', '_blank');
+          break;
+        case 'trydent':
+          responseLine.textContent = 'Abriendo carpeta Trydent...';
+          window.open('https://github.com/pythevirusfake/fakevirusbypython/tree/main/Trydent.ai3%2C0', '_blank');
+          break;
+        case 'xd':
+          responseLine.textContent = 'XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!';
+          break;
+        case 'clear':
+          log.innerHTML = '';
+          input.value = '';
+          return;
+        default:
+          responseLine.textContent = 'Comando no reconocido XD. Escribe "help".';
+          responseLine.style.color = '#ff0055';
+      }
+
+      log.appendChild(responseLine);
+      log.scrollTop = log.scrollHeight;
+      input.value = '';
+    }
+
+    // Permitir dar Enter en la terminal
+    document.getElementById('cmdInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        executeCommand();
+      }
+    });
+
+    // Verificador de Sistema Operativo
+    function checkSystem() {
+      const userAgent = window.navigator.userAgent;
+      const resultDiv = document.getElementById('systemResult');
+      resultDiv.style.display = 'block';
+
+      if (userAgent.indexOf("Win") !== -1) {
+        resultDiv.style.background = "#0c381e";
+        resultDiv.style.borderColor = "#00ff66";
+        resultDiv.style.color = "#00ff66";
+        resultDiv.innerHTML = "✅ <strong>¡SISTEMA COMPATIBLE!</strong> Detectamos que estás usando Windows. Puedes ejecutar todos los archivos de GitHub perfectamente. 🎉";
+      } else {
+        resultDiv.style.background = "#331010";
+        resultDiv.style.borderColor = "#ff4444";
+        resultDiv.style.color = "#ff8888";
+        resultDiv.innerHTML = "❌ <strong>SISTEMA NO COMPATIBLE.</strong> Parece que no usas Windows (Android/iOS/Linux/Mac). Recuerda que nada de este repositorio funcionará en tu dispositivo actual.";
+      }
+    }
+  </script>
 </body>
 </html>
