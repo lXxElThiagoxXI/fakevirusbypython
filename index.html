@@ -156,7 +156,7 @@
     <div class="card">
       <h3 style="color: var(--primary); margin-bottom: 10px;">💻 Terminal IA de Gemini XD</h3>
       
-      <!-- CAMPO FIJO PARA LA API KEY (COMPATIBLE CON NATIVEFIER / ELECTRON) -->
+      <!-- CAMPO FIJO PARA LA API KEY -->
       <div class="api-key-container">
         <input type="password" id="apiKeyInput" class="terminal-input" placeholder="🔑 Pega tu Gemini API Key aquí...">
         <button class="btn" onclick="saveApiKeyDirect()">Guardar Key</button>
@@ -165,7 +165,7 @@
       <div class="terminal" id="terminalLog">
         <div>> Sistema inicializado en modo seguro local...</div>
         <div>> Escribe tu API Key arriba para activar Gemini AI.</div>
-        <div>> Comandos disponibles: rblx, amng, clear, help</div>
+        <div>> Comandos disponibles: rblx, amng, py, clear, help</div>
       </div>
       <div class="terminal-input-container">
         <input type="text" id="cmdInput" class="terminal-input" placeholder="Pregúntale algo a la IA o escribe un comando...">
@@ -179,24 +179,31 @@
       <div class="links-grid">
         <div class="link-card">
           <div>
-            <h3>📂 Archivos Trydent.ai3,0</h3>
-            <p style="color: #aaa; font-size: 0.85rem;">Explorar árbol de código</p>
+            <h3>🚀 Python Launcher Portable & Scripts (.py)</h3>
+            <p style="color: #aaa; font-size: 0.85rem;">Iniciador portable + Nuevos scripts de simulación</p>
           </div>
-          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/tree/main/Trydent.ai3%2C0" target="_blank">Ver Código</a>
+          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py" target="_blank">Descargar PY / Launcher</a>
         </div>
         <div class="link-card">
           <div>
-            <h3>🚀 Rolex Player Fake Virus</h3>
+            <h3>📂 Archivos Trydent.ai3,0</h3>
+            <p style="color: #aaa; font-size: 0.85rem;">Explorar árbol de código fuente</p>
+          </div>
+          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/tree/main/Trydent.ai3%2C0" target="_blank">Ver Código</a>
+        </div>
+        <div class="link-card">
+          <div>
+            <h3>🎮 Rolex Player Fake Virus</h3>
             <p style="color: #aaa; font-size: 0.85rem;">Tag oficial / versión RBLX</p>
           </div>
-          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx" target="_blank">Descargar RBLX</a>
+          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/rblx" target="_blank">Descargar RBLX</a>
         </div>
         <div class="link-card">
           <div>
-            <h3>🎮 Release: AMNG Version</h3>
+            <h3>👾 Release: AMNG Version</h3>
             <p style="color: #aaa; font-size: 0.85rem;">Sección de Releases AMNG</p>
           </div>
-          <a class="btn" href="https://github.com/pythevirusfake/fakevirusbypython/releases#release-amng" target="_blank">Ver AMNG</a>
+          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases#release-amng" target="_blank">Ver AMNG</a>
         </div>
       </div>
     </div>
@@ -236,17 +243,20 @@
       const cmd = text.toLowerCase();
 
       // Comandos directos
-      if (cmd === 'rblx') {
-        window.open('https://github.com/pythevirusfake/fakevirusbypython/releases/tag/rblx', '_blank');
+      if (cmd === 'py') {
+        window.open('https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py', '_blank');
+        return;
+      } else if (cmd === 'rblx') {
+        window.open('https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/rblx', '_blank');
         return;
       } else if (cmd === 'amng') {
-        window.open('https://github.com/pythevirusfake/fakevirusbypython/releases#release-amng', '_blank');
+        window.open('https://github.com/lXxElThiagoxXI/fakevirusbypython/releases#release-amng', '_blank');
         return;
       } else if (cmd === 'clear') {
         document.getElementById('terminalLog').innerHTML = '';
         return;
       } else if (cmd === 'help') {
-        appendLog('COMANDOS: rblx, amng, clear, o escribe libremente para consultar a Gemini.', '#00ff66');
+        appendLog('COMANDOS: py, rblx, amng, clear, o escribe libremente para consultar a Gemini.', '#00ff66');
         return;
       }
 
@@ -260,7 +270,7 @@
 
       appendLog('> Procesando respuesta con Gemini AI...', '#888888');
 
-      // Modelos soportados (3.6 Flash y 3.5 Flash Lite)
+      // Modelos soportados
       const modelsToTry = ['gemini-3.6-flash', 'gemini-3.5-flash-lite'];
       let success = false;
 
@@ -287,7 +297,7 @@
             break;
           }
         } catch (error) {
-          // Si falla, prueba el siguiente modelo
+          // Probar siguiente modelo
         }
       }
 
