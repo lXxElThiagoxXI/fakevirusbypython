@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fake Virus Hub - Simuladores y Descargas</title>
+  <title>Fake Virus Hub - Centro Directo de Descargas</title>
   <style>
     :root {
       --primary: #00ff66;
@@ -58,9 +58,6 @@
       padding-bottom: 8px;
       margin: 30px 0 20px 0;
       font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .download-grid {
@@ -159,47 +156,72 @@
 
     <div class="header">
       <h1>🌐 Centro de Software & Descargas</h1>
-      <p>Fake Virus Hub — Descarga directa e independiente</p>
+      <p>Fake Virus Hub — Descarga directa de simuladores y ejecutables</p>
     </div>
 
-    <!-- SECCIÓN: SIMULADORES -->
-    <div class="section-title">🧪 Simuladores</div>
+    <!-- SECCIÓN 1: SIMULADORES EN PYTHON -->
+    <div class="section-title">🧪 Simuladores (.py)</div>
     <div class="download-grid">
 
-      <!-- Simulador 1 -->
       <div class="download-card">
         <div class="card-info">
           <span class="badge badge-py">SCRIPT PYTHON</span>
           <h3>CMD Overload</h3>
           <p>Simulación en consola que genera una inyección continua de procesos de sistema a alta velocidad.</p>
         </div>
-        <button class="btn-download" onclick="downloadLocalScript('fake_cmd_overload.py', cmdCode)">
+        <button class="btn-download" onclick="downloadFile('fake_cmd_overload.py', cmdCode)">
           ⬇️ Descargar Script (.py)
         </button>
       </div>
 
-      <!-- Simulador 2 -->
       <div class="download-card">
         <div class="card-info">
           <span class="badge badge-py">SCRIPT PYTHON</span>
           <h3>Fake Windows Update</h3>
           <p>Simulador gráfico de pantalla completa de actualización de Windows congelada al 99%.</p>
         </div>
-        <button class="btn-download" onclick="downloadLocalScript('fake_fake_update.py', updateCode)">
+        <button class="btn-download" onclick="downloadFile('fake_fake_update.py', updateCode)">
           ⬇️ Descargar Script (.py)
         </button>
       </div>
 
-      <!-- Simulador 3 -->
       <div class="download-card">
         <div class="card-info">
           <span class="badge badge-py">SCRIPT PYTHON</span>
           <h3>Audio Glitch GUI</h3>
           <p>Ventana flotante de alerta con patrones de sonido del sistema y botones interactivos.</p>
         </div>
-        <button class="btn-download" onclick="downloadLocalScript('fake_audio_glitch_gui.py', audioCode)">
-          ⬇️️ Descargar Script (.py)
+        <button class="btn-download" onclick="downloadFile('fake_audio_glitch_gui.py', audioCode)">
+          ⬇️ Descargar Script (.py)
         </button>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN 2: EJECUTABLES / RELEASES -->
+    <div class="section-title">🚀 Programas Ejecutables (.exe)</div>
+    <div class="download-grid">
+
+      <div class="download-card">
+        <div class="card-info">
+          <span class="badge badge-exe">.EXE PORTABLE</span>
+          <h3>Python Launcher Portable</h3>
+          <p>Lanzador independiente para ejecutar los scripts sin necesidad de tener Python instalado.</p>
+        </div>
+        <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/PythonLauncherPortable.exe" target="_blank">
+          ⬇️ Descargar Launcher (.exe)
+        </a>
+      </div>
+
+      <div class="download-card">
+        <div class="card-info">
+          <span class="badge badge-exe">.EXE SIMULADOR</span>
+          <h3>Rolex Player Fake Virus</h3>
+          <p>Ejecutable del simulador de Roblox con interfaz completa de prueba.</p>
+        </div>
+        <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/rblx/RolexPlayer.exe" target="_blank">
+          ⬇️ Descargar RBLX (.exe)
+        </a>
       </div>
 
     </div>
@@ -211,20 +233,18 @@
   </div>
 
   <script>
-    // Sistema de descargas local independiente (Genera el archivo al instante desde el navegador)
-    function downloadLocalScript(filename, content) {
-      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+    // Función que genera y descarga el archivo .py directamente desde el navegador
+    function downloadFile(filename, textContent) {
+      const element = document.createElement('a');
+      const file = new Blob([textContent], {type: 'text/plain;charset=utf-8'});
+      element.href = URL.createObjectURL(file);
+      element.download = filename;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
     }
 
-    // Código de los scripts almacenados internamente en la página
+    // Contenido de los scripts guardados internamente
     const cmdCode = `import os, random, time
 os.system("color 0c")
 os.system("title [ALERT] FORKING SYSTEM PROCESSES")
@@ -239,7 +259,7 @@ try:
         time.sleep(0.02)
 except KeyboardInterrupt:
     pass
-print("\n[+] Broma completada.")
+print("\\n[+] Broma completada.")
 input("Presiona Enter para salir...")`;
 
     const updateCode = `import os, time
@@ -259,7 +279,6 @@ input("              Presiona Enter para salir...")`;
 
     const audioCode = `import winsound, sys
 import tkinter as tk
-from tkinter import messagebox
 
 def alarm():
     for _ in range(3):
