@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fake Virus Hub - Centro Directo de Descargas</title>
+  <title>Fake Virus Hub - Centro de Descargas</title>
   <style>
     :root {
       --primary: #00ff66;
@@ -31,7 +31,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 950px;
       width: 100%;
     }
 
@@ -108,25 +108,49 @@
     .badge-py { background: #3572A533; color: #3572A5; border: 1px solid #3572A5; }
     .badge-exe { background: #00ff661a; color: var(--primary); border: 1px solid var(--primary); }
 
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .btn-download {
       background: var(--primary);
       color: #000;
       text-align: center;
       text-decoration: none;
-      padding: 10px 15px;
+      padding: 10px 12px;
       font-weight: bold;
       border: none;
       border-radius: 4px;
       display: block;
       width: 100%;
       cursor: pointer;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: all 0.2s;
     }
 
     .btn-download:hover {
       box-shadow: 0 0 12px var(--primary);
       background: #00cc55;
+    }
+
+    .btn-page {
+      background: transparent;
+      color: #aaa;
+      text-align: center;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .btn-page:hover {
+      color: #fff;
+      border-color: var(--primary);
     }
 
     .nav-bar {
@@ -156,10 +180,48 @@
 
     <div class="header">
       <h1>🌐 Centro de Software & Descargas</h1>
-      <p>Fake Virus Hub — Descarga directa de simuladores y ejecutables</p>
+      <p>Fake Virus Hub — Descarga directa de ejecutables y simuladores</p>
     </div>
 
-    <!-- SECCIÓN 1: SIMULADORES EN PYTHON -->
+    <!-- SECCIÓN 1: LAUNCHER Y EJECUTABLES -->
+    <div class="section-title">🚀 Lanzadores y Programas (.exe)</div>
+    <div class="download-grid">
+
+      <div class="download-card">
+        <div class="card-info">
+          <span class="badge badge-exe">.EXE PORTABLE</span>
+          <h3>Python Launcher Portable</h3>
+          <p>Lanzador ejecutable que corre todos los scripts .py sin requerir instalación previa de Python.</p>
+        </div>
+        <div class="btn-group">
+          <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/PythonLauncherPortable.exe" download>
+            ⬇️ Descargar Launcher (.exe)
+          </a>
+          <a class="btn-page" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py" target="_blank">
+            🔗 Ver página de descarga oficial
+          </a>
+        </div>
+      </div>
+
+      <div class="download-card">
+        <div class="card-info">
+          <span class="badge badge-exe">.EXE SIMULADOR</span>
+          <h3>Rolex Player Fake Virus</h3>
+          <p>Simulador ejecutable directo estilo Roblox con ventana emergente interactiva de prueba.</p>
+        </div>
+        <div class="btn-group">
+          <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/rblx/RolexPlayer.exe" download>
+            ⬇️ Descargar RBLX (.exe)
+          </a>
+          <a class="btn-page" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/rblx" target="_blank">
+            🔗 Ver página de descarga oficial
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN 2: SIMULADORES Y SCRIPTS PYTHON -->
     <div class="section-title">🧪 Simuladores (.py)</div>
     <div class="download-grid">
 
@@ -169,9 +231,14 @@
           <h3>CMD Overload</h3>
           <p>Simulación en consola que genera una inyección continua de procesos de sistema a alta velocidad.</p>
         </div>
-        <button class="btn-download" onclick="downloadFile('fake_cmd_overload.py', cmdCode)">
-          ⬇️ Descargar Script (.py)
-        </button>
+        <div class="btn-group">
+          <button class="btn-download" onclick="downloadFile('fake_cmd_overload.py', cmdCode)">
+            ⬇️ Descargar Script (.py)
+          </button>
+          <a class="btn-page" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/fake_cmd_overload.py" target="_blank">
+            🔗 Ver página de descarga del script
+          </a>
+        </div>
       </div>
 
       <div class="download-card">
@@ -180,9 +247,14 @@
           <h3>Fake Windows Update</h3>
           <p>Simulador gráfico de pantalla completa de actualización de Windows congelada al 99%.</p>
         </div>
-        <button class="btn-download" onclick="downloadFile('fake_fake_update.py', updateCode)">
-          ⬇️ Descargar Script (.py)
-        </button>
+        <div class="btn-group">
+          <button class="btn-download" onclick="downloadFile('fake_fake_update.py', updateCode)">
+            ⬇️ Descargar Script (.py)
+          </button>
+          <a class="btn-page" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/fake_fake_update.py" target="_blank">
+            🔗 Ver página de descarga del script
+          </a>
+        </div>
       </div>
 
       <div class="download-card">
@@ -191,37 +263,14 @@
           <h3>Audio Glitch GUI</h3>
           <p>Ventana flotante de alerta con patrones de sonido del sistema y botones interactivos.</p>
         </div>
-        <button class="btn-download" onclick="downloadFile('fake_audio_glitch_gui.py', audioCode)">
-          ⬇️ Descargar Script (.py)
-        </button>
-      </div>
-
-    </div>
-
-    <!-- SECCIÓN 2: EJECUTABLES / RELEASES -->
-    <div class="section-title">🚀 Programas Ejecutables (.exe)</div>
-    <div class="download-grid">
-
-      <div class="download-card">
-        <div class="card-info">
-          <span class="badge badge-exe">.EXE PORTABLE</span>
-          <h3>Python Launcher Portable</h3>
-          <p>Lanzador independiente para ejecutar los scripts sin necesidad de tener Python instalado.</p>
+        <div class="btn-group">
+          <button class="btn-download" onclick="downloadFile('fake_audio_glitch_gui.py', audioCode)">
+            ⬇️ Descargar Script (.py)
+          </button>
+          <a class="btn-page" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/fake_audio_glitch_gui.py" target="_blank">
+            🔗 Ver página de descarga del script
+          </a>
         </div>
-        <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/py/PythonLauncherPortable.exe" target="_blank">
-          ⬇️ Descargar Launcher (.exe)
-        </a>
-      </div>
-
-      <div class="download-card">
-        <div class="card-info">
-          <span class="badge badge-exe">.EXE SIMULADOR</span>
-          <h3>Rolex Player Fake Virus</h3>
-          <p>Ejecutable del simulador de Roblox con interfaz completa de prueba.</p>
-        </div>
-        <a class="btn-download" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/download/rblx/RolexPlayer.exe" target="_blank">
-          ⬇️ Descargar RBLX (.exe)
-        </a>
       </div>
 
     </div>
@@ -233,7 +282,6 @@
   </div>
 
   <script>
-    // Función que genera y descarga el archivo .py directamente desde el navegador
     function downloadFile(filename, textContent) {
       const element = document.createElement('a');
       const file = new Blob([textContent], {type: 'text/plain;charset=utf-8'});
@@ -244,7 +292,6 @@
       document.body.removeChild(element);
     }
 
-    // Contenido de los scripts guardados internamente
     const cmdCode = `import os, random, time
 os.system("color 0c")
 os.system("title [ALERT] FORKING SYSTEM PROCESSES")
