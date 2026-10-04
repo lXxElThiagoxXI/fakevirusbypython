@@ -105,10 +105,11 @@
       border: none;
       cursor: pointer;
       transition: all 0.2s;
+      display: inline-block;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
       box-shadow: 0 0 12px var(--primary);
     }
 
@@ -152,6 +153,13 @@
       <p style="color: #888;">Panel de control interactivo con inteligencia artificial integrada</p>
     </div>
 
+    <!-- BOTÓN DE ACCESO DIRECTO A LA ZONA DE DESCARGAS INDEPENDIENTE -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a href="download.html" class="btn" style="font-size: 1.1rem; width: 100%; text-align: center; padding: 14px;">
+        📥 IR A LA ZONA DE DESCARGAS DIRECTAS (SIMULADORES & LAUNCHER)
+      </a>
+    </div>
+
     <!-- TERMINAL INTERACTIVA CON GEMINI AI -->
     <div class="card">
       <h3 style="color: var(--primary); margin-bottom: 10px;">💻 Terminal IA de Gemini XD</h3>
@@ -165,7 +173,7 @@
       <div class="terminal" id="terminalLog">
         <div>> Sistema inicializado en modo seguro local...</div>
         <div>> Escribe tu API Key arriba para activar Gemini AI.</div>
-        <div>> Comandos disponibles: rblx, amng, py, clear, help</div>
+        <div>> Comandos disponibles: downloads, rblx, amng, py, clear, help</div>
       </div>
       <div class="terminal-input-container">
         <input type="text" id="cmdInput" class="terminal-input" placeholder="Pregúntale algo a la IA o escribe un comando...">
@@ -173,16 +181,16 @@
       </div>
     </div>
 
-    <!-- SECCIÓN DE ARCHIVOS Y RELEASES -->
+    <!-- SECCIÓN DE ENLACES EXTERNOS Y RELEASES -->
     <div class="card">
-      <h2 style="margin-bottom: 15px;">📦 Releases Disponibles</h2>
+      <h2 style="margin-bottom: 15px;">📦 Releases & Repositorio</h2>
       <div class="links-grid">
         <div class="link-card">
           <div>
             <h3>🚀 Python Launcher Portable & Scripts (.py)</h3>
-            <p style="color: #aaa; font-size: 0.85rem;">Iniciador portable + Nuevos scripts de simulación</p>
+            <p style="color: #aaa; font-size: 0.85rem;">Tag oficial en GitHub Releases</p>
           </div>
-          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py" target="_blank">Descargar PY / Launcher</a>
+          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py" target="_blank">Ver en GitHub</a>
         </div>
         <div class="link-card">
           <div>
@@ -197,13 +205,6 @@
             <p style="color: #aaa; font-size: 0.85rem;">Tag oficial / versión RBLX</p>
           </div>
           <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/rblx" target="_blank">Descargar RBLX</a>
-        </div>
-        <div class="link-card">
-          <div>
-            <h3>👾 Release: AMNG Version</h3>
-            <p style="color: #aaa; font-size: 0.85rem;">Sección de Releases AMNG</p>
-          </div>
-          <a class="btn" href="https://github.com/lXxElThiagoxXI/fakevirusbypython/releases#release-amng" target="_blank">Ver AMNG</a>
         </div>
       </div>
     </div>
@@ -242,8 +243,11 @@
 
       const cmd = text.toLowerCase();
 
-      // Comandos directos
-      if (cmd === 'py') {
+      // Comandos directos de la terminal
+      if (cmd === 'downloads' || cmd === 'descargas') {
+        window.location.href = 'download.html';
+        return;
+      } else if (cmd === 'py') {
         window.open('https://github.com/lXxElThiagoxXI/fakevirusbypython/releases/tag/py', '_blank');
         return;
       } else if (cmd === 'rblx') {
@@ -256,7 +260,7 @@
         document.getElementById('terminalLog').innerHTML = '';
         return;
       } else if (cmd === 'help') {
-        appendLog('COMANDOS: py, rblx, amng, clear, o escribe libremente para consultar a Gemini.', '#00ff66');
+        appendLog('COMANDOS: downloads, py, rblx, amng, clear, o escribe libremente para consultar a Gemini.', '#00ff66');
         return;
       }
 
